@@ -3,70 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detail Buku - Perpustakaan Kampus</title>
+    <title>Perpustakaan Kampus</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- HEADER -->
     <header class="header">
         <h1>PERPUSTAKAAN KAMPUS</h1>
         <p>Portal Layanan Perpustakaan Digital</p>
     </header>
 
+    <!-- NAVIGASI -->
     <nav class="navbar">
         <a href="index.html">Beranda</a>
-        <a href="index.html#daftar-buku">Daftar Buku</a>
-        <a href="index.html#informasi">Informasi</a>
+        <a href="#daftar-buku">Daftar Buku</a>
+        <a href="#informasi">Informasi</a>
     </nav>
 
     <main class="container">
 
-        <a href="index.html" class="back-link">
-            <span> class="back-icon">‹</span>
-            <span>Kembali ke Daftar Buku</span>
-        </a>
+        <!-- SAMBUTAN -->
+        <section class="welcome">
+            <h2>Selamat Datang di Perpustakaan</h2>
+            <p>Temukan dan pinjam buku favoritmu dengan mudah.</p>
+        </section>
 
-        <section class="detail-card">
+        <!-- PENCARIAN -->
+        <section class="search">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Cari judul atau nama penulis..."
+            >
+            <button onclick="searchBooks()">Cari Buku</button>
+        </section>
 
-            <div class="detail-cover">
-                COVER BUKU
+        <p id="searchMessage"></p>
+
+        <!-- DAFTAR BUKU -->
+        <section id="daftar-buku">
+            <h2>Daftar Buku</h2>
+            <p class="section-description">
+                Pilih buku yang ingin kamu baca atau pinjam.
+            </p>
+
+            <div class="book-list" id="bookList">
+
+                <!-- BUKU 1 -->
+                <article class="book-card">
+                    <div class="book-cover cover-one">
+                        <span>EDUKASI</span>
+                        <strong>DASAR<br>PEMROGRAMAN</strong>
+                        <small>Abdul Kadir</small>
+                    </div>
+
+                    <h3>Dasar Pemrograman</h3>
+                    <p>Penulis: Abdul Kadir</p>
+                    <span class="available">Tersedia</span>
+                    <a href="detail.html" class="button">
+                        Lihat Detail
+                    </a>
+                </article>
+
+                <!-- BUKU 2 -->
+                <article class="book-card">
+                    <div class="book-cover cover-two">
+                        <span>ILMU KOMPUTER</span>
+                        <strong>BASIS DATA</strong>
+                        <small>Fathansyah</small>
+                    </div>
+
+                    <h3>Basis Data</h3>
+                    <p>Penulis: Fathansyah</p>
+                    <span class="available">Tersedia</span>
+                    <a href="detail.html" class="button">
+                        Lihat Detail
+                    </a>
+                </article>
+
+                <!-- BUKU 3 -->
+                <article class="book-card">
+                    <div class="book-cover cover-three">
+                        <span>TEKNOLOGI</span>
+                        <strong>ALGORITMA &amp;<br>STRUKTUR DATA</strong>
+                        <small>Rinaldi Munir</small>
+                    </div>
+
+                    <h3>Algoritma dan Struktur Data</h3>
+                    <p>Penulis: Rinaldi Munir</p>
+                    <span class="unavailable">Dipinjam</span>
+                    <a href="detail.html" class="button">
+                        Lihat Detail
+                    </a>
+                </article>
+
             </div>
 
-            <div class="detail-info">
-                <h2>Dasar Pemrograman</h2>
-
-                <p><strong>Penulis:</strong> Abdul Kadir</p>
-                <p><strong>Penerbit:</strong> Andi Publisher</p>
-                <p><strong>Tahun Terbit:</strong> 2024</p>
-                <p><strong>Kategori:</strong> Teknologi</p>
-
-                <span class="available">Tersedia</span>
-
-                <h3>Deskripsi Buku</h3>
-                <p>
-                    Buku ini membahas dasar-dasar pemrograman,
-                    mulai dari pengenalan algoritma, variabel,
-                    tipe data, percabangan, hingga perulangan.
-                    Cocok untuk mahasiswa yang baru belajar
-                    pemrograman.
-                </p>
-
-                <div class="book-stock">
-                    <strong>Stok Buku:</strong> 5 Eksemplar
-                </div>
-
-                <button class="borrow-button">
-                    Pinjam Buku
-                </button>
-            </div>
-
+            <p id="noResult" class="no-result" hidden>
+                Buku tidak ditemukan.
+            </p>
         </section>
 
     </main>
 
-    <footer>
+    <!-- FOOTER -->
+    <footer id="informasi">
         <p>© 2026 Perpustakaan Kampus</p>
+        <p>Portal Layanan Perpustakaan Digital</p>
     </footer>
+
+    <!-- FITUR PENCARIAN -->
+    <script>
+        function searchBooks() {
+            const input = document
+                .getElementById("searchInput")
+                .value.toLowerCase();
+
+            const books = document.querySelectorAll(".book-card");
+            let found = 0;
+
+            books.forEach(function(book) {
+                const content = book.innerText.toLowerCase();
+
+                if (content.includes(input)) {
+                    book.style.display = "block";
+                    found++;
+                } else {
+                    book.style.display = "none";
+                }
+            });
+
+            document.getElementById("noResult").hidden =
+                found !== 0;
+
+            document.getElementById("searchMessage").textContent =
+                input === "" ? "" : found + " buku ditemukan.";
+        }
+
+        document
+            .getElementById("searchInput")
+            .addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    searchBooks();
+                }
+            });
+    </script>
 
 </body>
 </html>
