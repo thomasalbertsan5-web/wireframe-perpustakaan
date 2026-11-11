@@ -1,0 +1,395 @@
+/* =================================
+   1. PENGATURAN DASAR
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+    color: #263238;
+    line-height: 1.5;
+}
+
+/* =================================
+   2. HEADER
+================================= */
+
+.header {
+    background-color: #183b56;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.header h1 {
+    font-size: 28px;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+.header p {
+    font-size: 14px;
+}
+
+/* =================================
+   3. NAVIGASI
+================================= */
+
+.navbar {
+    background-color: white;
+    padding: 16px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #183b56;
+    font-weight: bold;
+    margin: 0 18px;
+    font-size: 14px;
+}
+
+.navbar a:hover {
+    color: #247ba0;
+}
+
+/* =================================
+   4. KONTEN UTAMA
+================================= */
+
+.container {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.welcome {
+    margin-bottom: 25px;
+}
+
+.welcome h2 {
+    font-size: 25px;
+    margin-bottom: 8px;
+    color: #183b56;
+}
+
+.welcome p {
+    color: #667788;
+    font-size: 15px;
+}
+
+/* =================================
+   5. PENCARIAN
+================================= */
+
+.search {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 35px;
+}
+
+.search input {
+    flex: 1;
+    padding: 13px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.search input:focus {
+    outline: 2px solid #247ba0;
+}
+
+.search button {
+    background-color: #247ba0;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.search button:hover,
+.button:hover,
+.borrow-button:hover {
+    background-color: #183b56;
+}
+
+#searchMessage {
+    margin-top: -25px;
+    margin-bottom: 20px;
+    color: #526575;
+    font-size: 13px;
+}
+
+/* =================================
+   6. DAFTAR BUKU
+================================= */
+
+#daftar-buku h2 {
+    font-size: 23px;
+    color: #183b56;
+    margin-bottom: 5px;
+}
+
+.section-description {
+    color: #667788;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.book-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.book-card {
+    background-color: white;
+    padding: 18px;
+    border: 1px solid #ddd;
+    border-radius: 9px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+    transition: transform 0.2s;
+}
+
+.book-card:hover {
+    transform: translateY(-3px);
+}
+
+.book-card h3 {
+    font-size: 17px;
+    margin: 12px 0 5px;
+    color: #183b56;
+}
+
+.book-card p {
+    font-size: 13px;
+    color: #667788;
+    margin-bottom: 12px;
+}
+
+/* =================================
+   7. COVER BUKU
+================================= */
+
+.book-cover {
+    width: 100%;
+    height: 180px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-radius: 5px;
+    color: white;
+    overflow: hidden;
+}
+
+.book-cover span {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    font-weight: bold;
+}
+
+.book-cover strong {
+    font-size: 19px;
+    line-height: 1.4;
+    max-width: 100%;
+    overflow-wrap: break-word;
+}
+
+.book-cover small {
+    font-size: 12px;
+}
+
+/* Warna setiap cover */
+
+.cover-one {
+    background: linear-gradient(135deg, #244c66, #427d96);
+}
+
+.cover-two {
+    background: linear-gradient(135deg, #537b72, #83a99a);
+}
+
+.cover-three {
+    background: linear-gradient(135deg, #765b83, #a184ad);
+}
+
+/* =================================
+   8. STATUS BUKU
+================================= */
+
+.available,
+.unavailable {
+    display: inline-block;
+    font-size: 12px;
+    padding: 6px 10px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.available {
+    background-color: #d9f2e3;
+    color: #176b3a;
+}
+
+.unavailable {
+    background-color: #fce1e1;
+    color: #a52a2a;
+}
+
+/* =================================
+   9. TOMBOL DETAIL
+================================= */
+
+.button {
+    display: block;
+    text-align: center;
+    background-color: #247ba0;
+    color: white;
+    padding: 11px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* =================================
+   10. HALAMAN DETAIL BUKU
+================================= */
+
+.back-link {
+    display: inline-block;
+    color: #247ba0;
+    text-decoration: none;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.detail-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 9px;
+    padding: 25px;
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 30px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+}
+
+.detail-cover {
+    background: linear-gradient(135deg, #244c66, #427d96);
+    min-height: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.detail-info h2 {
+    font-size: 26px;
+    color: #183b56;
+    margin-bottom: 18px;
+}
+
+.detail-info p {
+    margin-bottom: 12px;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.detail-info h3 {
+    margin: 20px 0 10px;
+    color: #183b56;
+}
+
+.book-stock {
+    background-color: #f4f6f9;
+    padding: 14px;
+    margin: 20px 0;
+    border-radius: 6px;
+}
+
+.borrow-button {
+    background-color: #247ba0;
+    color: white;
+    border: none;
+    padding: 13px 25px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* =================================
+   11. PESAN PENCARIAN
+================================= */
+
+.no-result {
+    text-align: center;
+    padding: 30px;
+    color: #667788;
+}
+
+/* =================================
+   12. FOOTER
+================================= */
+
+footer {
+    background-color: #183b56;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+    font-size: 13px;
+}
+
+footer p + p {
+    margin-top: 4px;
+}
+
+/* =================================
+   13. RESPONSIVE
+================================= */
+
+@media (max-width: 700px) {
+
+    .book-list {
+        grid-template-columns: 1fr;
+    }
+
+    .search {
+        flex-direction: column;
+    }
+
+    .detail-card {
+        grid-template-columns: 1fr;
+    }
+
+    .detail-cover {
+        min-height: 220px;
+    }
+
+    .navbar a {
+        margin: 0 8px;
+        font-size: 12px;
+    }
+
+    .header h1 {
+        font-size: 22px;
+    }
+}
